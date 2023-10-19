@@ -1,0 +1,69 @@
+{
+	"module_name":	"w_IO_L2_in_inter_trans_boundary",
+	"module_prop":	{
+		"double_buffer":	1,
+		"in":	1
+	},
+	"loop":	{
+		"loop_info":	{
+			"iter":	"c4",
+			"lb":	"p0",
+			"ub":	"3",
+			"stride":	"1"
+		},
+		"child":	{
+			"if":	{
+				"then":	{
+					"mark":	{
+						"mark_name":	"io_L2",
+						"child":	{
+							"loop":	{
+								"loop_info":	{
+									"iter":	"c5",
+									"lb":	"0",
+									"ub":	"1",
+									"stride":	"1"
+								},
+								"child":	{
+									"loop":	{
+										"loop_info":	{
+											"iter":	"c6",
+											"lb":	"0",
+											"ub":	"2",
+											"stride":	"1"
+										},
+										"child":	{
+											"loop":	{
+												"loop_info":	{
+													"iter":	"c7",
+													"lb":	"0",
+													"ub":	"2",
+													"stride":	"1"
+												},
+												"child":	{
+													"mark":	{
+														"mark_name":	"access_coalesce",
+														"child":	{
+															"mark":	{
+																"mark_name":	"hls_pipeline",
+																"child":	{
+																	"user":	{
+																		"user_expr":	"in_trans_boundary.fifo_w.fifo_w.1.16.16.8.18(c0, 0, 0, 0, p0, 2 * p0 + 8 * c0 + c5, c6, c7, 0)"
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
