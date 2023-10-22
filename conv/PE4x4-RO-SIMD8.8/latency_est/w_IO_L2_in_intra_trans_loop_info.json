@@ -1,0 +1,105 @@
+{
+	"module_name":	"w_IO_L2_in_intra_trans",
+	"module_prop":	{
+		"double_buffer":	1,
+		"in":	1
+	},
+	"mark":	{
+		"mark_name":	"io_L2",
+		"child":	{
+			"mark":	{
+				"mark_name":	"io_L1",
+				"child":	{
+					"mark":	{
+						"mark_name":	"pe",
+						"child":	{
+							"loop":	{
+								"loop_info":	{
+									"iter":	"c8",
+									"lb":	"0",
+									"ub":	"2",
+									"stride":	"1"
+								},
+								"child":	{
+									"loop":	{
+										"loop_info":	{
+											"iter":	"c9",
+											"lb":	"0",
+											"ub":	"2",
+											"stride":	"1"
+										},
+										"child":	{
+											"mark":	{
+												"mark_name":	"latency",
+												"child":	{
+													"loop":	{
+														"loop_info":	{
+															"iter":	"c10",
+															"lb":	"0",
+															"ub":	"3",
+															"stride":	"1"
+														},
+														"child":	{
+															"mark":	{
+																"mark_name":	"latency",
+																"child":	{
+																	"loop":	{
+																		"loop_info":	{
+																			"iter":	"c11",
+																			"lb":	"0",
+																			"ub":	"1",
+																			"stride":	"1"
+																		},
+																		"child":	{
+																			"mark":	{
+																				"mark_name":	"latency",
+																				"child":	{
+																					"loop":	{
+																						"loop_info":	{
+																							"iter":	"c12",
+																							"lb":	"0",
+																							"ub":	"3",
+																							"stride":	"1"
+																						},
+																						"child":	{
+																							"mark":	{
+																								"mark_name":	"simd",
+																								"child":	{
+																									"mark":	{
+																										"mark_name":	"simd",
+																										"child":	{
+																											"mark":	{
+																												"mark_name":	"hls_pipeline",
+																												"child":	{
+																													"user":	{
+																														"user_expr":	"out_trans.fifo_w.fifo_w_local.1.8.1(0, c1, c2, c3, p0, 0, 0, 0, c8, c9, c10, c11, c12, 0, 0, 4 * p0 + c10, c8, c9, 8 * c3)"
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

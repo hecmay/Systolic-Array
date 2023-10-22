@@ -1,0 +1,178 @@
+{
+	"module_name":	"PE",
+	"module_prop":	{
+		"double_buffer":	0,
+		"in":	-1
+	},
+	"loop":	{
+		"loop_info":	{
+			"iter":	"c1",
+			"lb":	"0",
+			"ub":	"31",
+			"stride":	"1"
+		},
+		"child":	{
+			"loop":	{
+				"loop_info":	{
+					"iter":	"c2",
+					"lb":	"0",
+					"ub":	"63",
+					"stride":	"1"
+				},
+				"child":	{
+					"loop":	{
+						"loop_info":	{
+							"iter":	"c3",
+							"lb":	"0",
+							"ub":	"1",
+							"stride":	"1"
+						},
+						"child":	{
+							"mark":	{
+								"mark_name":	"array",
+								"child":	{
+									"mark":	{
+										"mark_name":	"pe",
+										"child":	{
+											"loop":	{
+												"loop_info":	{
+													"iter":	"c8",
+													"lb":	"0",
+													"ub":	"2",
+													"stride":	"1"
+												},
+												"child":	{
+													"loop":	{
+														"loop_info":	{
+															"iter":	"c9",
+															"lb":	"0",
+															"ub":	"2",
+															"stride":	"1"
+														},
+														"child":	{
+															"mark":	{
+																"mark_name":	"latency",
+																"child":	{
+																	"loop":	{
+																		"loop_info":	{
+																			"iter":	"c10",
+																			"lb":	"0",
+																			"ub":	"3",
+																			"stride":	"1"
+																		},
+																		"child":	{
+																			"mark":	{
+																				"mark_name":	"latency",
+																				"child":	{
+																					"loop":	{
+																						"loop_info":	{
+																							"iter":	"c11",
+																							"lb":	"0",
+																							"ub":	"1",
+																							"stride":	"1"
+																						},
+																						"child":	{
+																							"mark":	{
+																								"mark_name":	"latency",
+																								"child":	{
+																									"loop":	{
+																										"loop_info":	{
+																											"iter":	"c12",
+																											"lb":	"0",
+																											"ub":	"3",
+																											"stride":	"1"
+																										},
+																										"child":	{
+																											"mark":	{
+																												"mark_name":	"hls_pipeline",
+																												"child":	{
+																													"mark":	{
+																														"mark_name":	"simd",
+																														"child":	{
+																															"loop":	{
+																																"loop_info":	{
+																																	"iter":	"c13",
+																																	"lb":	"0",
+																																	"ub":	"7",
+																																	"stride":	"1"
+																																},
+																																"child":	{
+																																	"mark":	{
+																																		"mark_name":	"hls_unroll",
+																																		"child":	{
+																																			"block":	{
+																																				"child":	[{
+																																						"user":	{
+																																							"user_expr":	"in.fifo_cin.1.1(0, c1, c2, c3, p0, p1, 0, 0, c8, c9, c10, c11, c12, c13, 2 * p1 + 8 * c1 + c8 + c11, 4 * c2 + c9 + c12, 8 * c3 + c13)"
+																																						}
+																																					}, {
+																																						"user":	{
+																																							"user_expr":	"in.fifo_w.1.1(0, c1, c2, c3, p0, p1, 0, 0, c8, c9, c10, c11, c12, c13, 4 * p0 + c10, c8, c9, 8 * c3 + c13)"
+																																						}
+																																					}, {
+																																						"mark":	{
+																																							"mark_name":	"simd",
+																																							"child":	{
+																																								"mark":	{
+																																									"mark_name":	"hls_unroll",
+																																									"child":	{
+																																										"user":	{
+																																											"user_expr":	"S_0(4 * p0 + c10, 2 * p1 + 8 * c1 + c11, 4 * c2 + c12, 8 * c3 + c13, c8, c9)"
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}, {
+																																						"user":	{
+																																							"user_expr":	"out.fifo_w.1.1(0, c1, c2, c3, p0, p1, 0, 0, c8, c9, c10, c11, c12, c13, 4 * p0 + c10, c8, c9, 8 * c3 + c13)"
+																																						}
+																																					}, {
+																																						"if":	{
+																																							"then":	{
+																																								"user":	{
+																																									"user_expr":	"out.fifo_cout_drain.1.1(0, c1, c2, 1, p0, p1, 0, 0, 2, 2, c10, c11, c12, 7, 2 * p1 + 8 * c1 + c11, 4 * c2 + c12, 4 * p0 + c10)"
+																																								}
+																																							}
+																																						}
+																																					}, {
+																																						"user":	{
+																																							"user_expr":	"out.fifo_cin.1.1(0, c1, c2, c3, p0, p1, 0, 0, c8, c9, c10, c11, c12, c13, 2 * p1 + 8 * c1 + c8 + c11, 4 * c2 + c9 + c12, 8 * c3 + c13)"
+																																						}
+																																					}]
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

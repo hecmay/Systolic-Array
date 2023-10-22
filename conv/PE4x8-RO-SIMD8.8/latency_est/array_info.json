@@ -1,0 +1,17 @@
+{
+	"cin":	{
+		"n_lane":	16,
+		"ele_type":	"float",
+		"ele_size":	4
+	},
+	"cout":	{
+		"n_lane":	16,
+		"ele_type":	"float",
+		"ele_size":	4
+	},
+	"w":	{
+		"n_lane":	16,
+		"ele_type":	"float",
+		"ele_size":	4
+	}
+}
